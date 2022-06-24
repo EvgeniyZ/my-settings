@@ -2,12 +2,15 @@
 	b = branch
 	c = commit
 	co = checkout
+	f = fetch
 	l = log
+	l = log --pretty=format:%C(green)%h\\ %C(yellow)[%cd]%Cred%d\\ %Creset%s%C(cyan)%\\ [%cn]--decorate --date=format:'%d %b %H:%M' --graph
+	rb = rebase
 	s = status
-	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --numstat
+	ls = log --pretty=format:%C(green)%h\\ %C(yellow)[%cd]%Cred%d\\ %Creset%s%C(cyan)%\\ [%cn]--decorate --date=format:'%d %b %H:%M' --graph --all
 [core]
-	editor = code --wait
+	editor = subl --wait
 	autocrlf = true
 [push]
 	default = current
@@ -23,3 +26,9 @@
 	trustExitCode = true
 [pull]
 	rebase = true
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+[credential]
+	helper = manager
